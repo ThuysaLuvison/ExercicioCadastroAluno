@@ -1,5 +1,5 @@
 package model;
-import dao.AlunoDAO;
+import DAO.AlunoDAO;
 import java.util.ArrayList;
 
 public class Aluno extends Pessoa {
