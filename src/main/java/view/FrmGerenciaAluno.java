@@ -4,17 +4,39 @@
  */
 package view;
 
+import model.Aluno;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author 1072410483
+ * @author 1072419878
  */
 public class FrmGerenciaAluno extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmGerenciaAluno
-     */
+    private Aluno objetoaluno;
+
     public FrmGerenciaAluno() {
         initComponents();
+        this.objetoaluno = new Aluno(); // carrega objetoaluno de aluno
+        this.carregaTabela();
+    }
+
+    public void carregaTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
+        modelo.setNumRows(0); //Posiciona na primeira linha da tabela
+//Carrega a lista de objetos aluno
+        ArrayList<Aluno> minhalista = objetoaluno.getMinhaLista();
+        for (Aluno a : minhalista) {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getIdade(),
+                a.getCurso(),
+                a.getFase()
+            });
+        }
     }
 
     /**
@@ -26,21 +48,271 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
+        LbNome = new javax.swing.JLabel();
+        TxtNome = new javax.swing.JTextField();
+        LbIdade = new javax.swing.JLabel();
+        TxtIdade = new javax.swing.JTextField();
+        LbCurso = new javax.swing.JLabel();
+        TxtCurso = new javax.swing.JTextField();
+        LbFase = new javax.swing.JLabel();
+        TxtFase = new javax.swing.JTextField();
+        BtCancelar = new javax.swing.JButton();
+        BtAlterar = new javax.swing.JButton();
+        BtApagar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Idade", "Curso", "Fase"
+            }
+        ));
+        Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Tabela);
+
+        LbNome.setText("Nome:");
+
+        TxtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNomeActionPerformed(evt);
+            }
+        });
+
+        LbIdade.setText("Idade:");
+
+        TxtIdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtIdadeActionPerformed(evt);
+            }
+        });
+
+        LbCurso.setText("Curso:");
+
+        LbFase.setText("Fase:");
+
+        TxtFase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFaseActionPerformed(evt);
+            }
+        });
+
+        BtCancelar.setText("Cancelar");
+        BtCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCancelarActionPerformed(evt);
+            }
+        });
+
+        BtAlterar.setText("Alterar");
+        BtAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAlterarActionPerformed(evt);
+            }
+        });
+
+        BtApagar.setText("Apagar");
+        BtApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtApagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LbNome)
+                            .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LbFase)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(TxtFase))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LbIdade)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(TxtIdade))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LbCurso)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(TxtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(BtCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtApagar)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LbNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbIdade)
+                    .addComponent(TxtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbCurso)
+                    .addComponent(TxtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbFase)
+                    .addComponent(TxtFase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtCancelar)
+                    .addComponent(BtAlterar)
+                    .addComponent(BtApagar))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNomeActionPerformed
+
+    private void TxtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtIdadeActionPerformed
+
+    private void TxtFaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFaseActionPerformed
+
+    private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_BtCancelarActionPerformed
+
+    private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaMouseClicked
+        // TODO add your handling code here:
+        if (this.Tabela.getSelectedRow() != -1) {
+            String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+            String idade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+            String curso = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+            String fase = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+            this.TxtNome.setText(nome);
+            this.TxtIdade.setText(idade);
+            this.TxtCurso.setText(curso);
+            this.TxtFase.setText(fase);
+        }
+    }//GEN-LAST:event_TabelaMouseClicked
+
+    private void BtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarActionPerformed
+        // TODO add your handling code here:
+        try {
+// recebendo e validando dados da interface gráfica.
+            int id = 0;
+            String nome = "";
+            int idade = 0;
+            String curso = "";
+            int fase = 0;
+            if (this.TxtNome.getText().length() < 2) {
+                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+            } else {
+                nome = this.TxtNome.getText();
+            }
+            if (this.TxtIdade.getText().length() <= 0) {
+                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
+            } else {
+                idade = Integer.parseInt(this.TxtIdade.getText());
+            }
+            if (this.TxtCurso.getText().length() < 2) {
+                throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
+            } else {
+                curso = this.TxtCurso.getText();
+            }
+            if (this.TxtFase.getText().length() <= 0) {
+                throw new Mensagens("Fase deve ser n�mero e maior que zero.");
+            } else {
+                fase = Integer.parseInt(this.TxtFase.getText());
+            }
+            if (this.Tabela.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione um Aluno para Alterar");
+            } else {
+                id = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 0).toString());
+            }
+// envia os dados para o Aluno processar
+            if (this.objetoaluno.updateAlunoBD(id, nome, idade, curso, fase)) {
+// limpa os campos
+                this.TxtNome.setText("");
+                this.TxtIdade.setText("");
+                this.TxtCurso.setText("");
+                this.TxtFase.setText("");
+                JOptionPane.showMessageDialog(rootPane, "Aluno Alterado com Sucesso!");
+            }
+//Exibe no console o aluno cadastrado
+            System.out.println(this.objetoaluno.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+        } finally {
+// atualiza a tabela.
+            carregaTabela();
+        }
+    }//GEN-LAST:event_BtAlterarActionPerformed
+
+    private void BtApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtApagarActionPerformed
+        // TODO add your handling code here:
+        try {
+// validando dados da interface gráfica.
+            int id = 0;
+            if (this.Tabela.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione umAluno para APAGAR");
+            } else {
+                id = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 0).toString());
+            }
+// retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+            int respostaUsuario = JOptionPane.
+                    showConfirmDialog(null,"Tem certeza que deseja apagar este Aluno ?");
+            if (respostaUsuario == 0) {// clicou em SIM
+// envia os dados para o Aluno processar
+                if (this.objetoaluno.deleteAlunoBD(id)) {
+// limpa os campos
+                    this.TxtNome.setText("");
+                    this.TxtIdade.setText("");
+                    this.TxtCurso.setText("");
+                    this.TxtFase.setText("");
+                    JOptionPane.showMessageDialog(rootPane,"Aluno Apagado com Sucesso!");
+                }
+            }
+// atualiza a tabela.
+            System.out.println(this.objetoaluno.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+// atualiza a tabela.
+            carregaTabela();
+        }
+    }//GEN-LAST:event_BtApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +340,7 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmGerenciaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +351,18 @@ public class FrmGerenciaAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtAlterar;
+    private javax.swing.JButton BtApagar;
+    private javax.swing.JButton BtCancelar;
+    private javax.swing.JLabel LbCurso;
+    private javax.swing.JLabel LbFase;
+    private javax.swing.JLabel LbIdade;
+    private javax.swing.JLabel LbNome;
+    private javax.swing.JTable Tabela;
+    private javax.swing.JTextField TxtCurso;
+    private javax.swing.JTextField TxtFase;
+    private javax.swing.JTextField TxtIdade;
+    private javax.swing.JTextField TxtNome;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
