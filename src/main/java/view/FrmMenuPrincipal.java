@@ -6,12 +6,12 @@ package view;
 
 /**
  *
- * @author 1072410483
+ * @author 1072419878
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmMenuPrincipal
+     * Creates new form FrmCadastroAluno
      */
     public FrmMenuPrincipal() {
         initComponents();
@@ -26,7 +26,59 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        GerenciarAlunos = new javax.swing.JMenu();
+        CadastraAluno = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        Sair = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Principal");
+
+        GerenciarAlunos.setText("File");
+        GerenciarAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GerenciarAlunosActionPerformed(evt);
+            }
+        });
+
+        CadastraAluno.setText("Cadastra Alunos");
+        CadastraAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastraAlunoActionPerformed(evt);
+            }
+        });
+        GerenciarAlunos.add(CadastraAluno);
+
+        jMenuItem4.setText("Gerenciar Alunos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        GerenciarAlunos.add(jMenuItem4);
+
+        Sair.setText("Sair");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairActionPerformed(evt);
+            }
+        });
+        GerenciarAlunos.add(Sair);
+
+        jMenuBar1.add(GerenciarAlunos);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -36,11 +88,32 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 277, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CadastraAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastraAlunoActionPerformed
+        // TODO add your handling code here:
+        FrmCadastroAluno objeto = new FrmCadastroAluno();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_CadastraAlunoActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciaAluno objeto = new FrmGerenciaAluno();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void GerenciarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarAlunosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GerenciarAlunosActionPerformed
+
+    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_SairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +141,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +154,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CadastraAluno;
+    private javax.swing.JMenu GerenciarAlunos;
+    private javax.swing.JMenuItem Sair;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

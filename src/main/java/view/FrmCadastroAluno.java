@@ -4,17 +4,23 @@
  */
 package view;
 
+import model.Aluno;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author 1072410483
+ * @author 1072419878
  */
 public class FrmCadastroAluno extends javax.swing.JFrame {
+
+    private Aluno objetoaluno; // cria o vínculo com o Aluno
 
     /**
      * Creates new form FrmCadastroAluno
      */
     public FrmCadastroAluno() {
         initComponents();
+        this.objetoaluno = new Aluno();
     }
 
     /**
@@ -26,21 +32,172 @@ public class FrmCadastroAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LbNome = new javax.swing.JLabel();
+        TxtNome = new javax.swing.JTextField();
+        LbIdade = new javax.swing.JLabel();
+        TxtIdade = new javax.swing.JTextField();
+        LbCurso = new javax.swing.JLabel();
+        TxtCurso = new javax.swing.JTextField();
+        LbFase = new javax.swing.JLabel();
+        TxtFase = new javax.swing.JTextField();
+        BtnCancelar = new javax.swing.JButton();
+        BtnCadastrar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Aluno");
+
+        LbNome.setText("Nome:");
+
+        TxtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNomeActionPerformed(evt);
+            }
+        });
+
+        LbIdade.setText("Idade:");
+
+        LbCurso.setText("Curso:");
+
+        TxtCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCursoActionPerformed(evt);
+            }
+        });
+
+        LbFase.setText("Fase:");
+
+        BtnCancelar.setText("Cancelar");
+        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelarActionPerformed(evt);
+            }
+        });
+
+        BtnCadastrar.setText("Cadastrar");
+        BtnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbFase)
+                                .addGap(18, 18, 18)
+                                .addComponent(TxtFase, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbCurso)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TxtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbIdade)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TxtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LbNome)
+                            .addComponent(TxtNome)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(BtnCancelar)
+                        .addGap(31, 31, 31)
+                        .addComponent(BtnCadastrar)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(LbNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbIdade)
+                    .addComponent(TxtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbCurso)
+                    .addComponent(TxtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbFase)
+                    .addComponent(TxtFase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnCancelar)
+                    .addComponent(BtnCadastrar))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNomeActionPerformed
+
+    private void TxtCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCursoActionPerformed
+
+    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_BtnCancelarActionPerformed
+
+    private void BtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarActionPerformed
+        // TODO add your handling code here:
+        try {
+// recebendo e validando dados da interface gráfica.
+            String nome = "";
+            int idade = 0;
+            String curso = "";
+            int fase = 0;
+            if (this.TxtNome.getText().length() < 2) {
+                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+            } else {
+                nome = this.TxtNome.getText();
+            }
+            if (this.TxtIdade.getText().length() <= 0) {
+                throw new Mensagens("Idade deve ser número e maior que zero.");
+            } else {
+                idade = Integer.parseInt(this.TxtIdade.getText());
+            }
+            if (this.TxtCurso.getText().length() < 2) {
+                throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
+            } else {
+                curso = this.TxtCurso.getText();
+            }
+            if (this.TxtFase.getText().length() <= 0) {
+                throw new Mensagens("Fase deve ser número e maior que zero.");
+            } else {
+                fase = Integer.parseInt(this.TxtFase.getText());
+            }
+// envia os dados para o Controlador cadastrar
+            if (this.objetoaluno.insertAlunoBD(nome, idade, curso, fase)) {
+                JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+// limpa campos da interface
+                this.TxtNome.setText("");
+                this.TxtIdade.setText("");
+                this.TxtCurso.setText("");
+                this.TxtFase.setText("");
+            }
+//Exibie no console o aluno cadastrado
+            System.out.println(this.objetoaluno.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+        }
+
+    }//GEN-LAST:event_BtnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +225,7 @@ public class FrmCadastroAluno extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmCadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +236,15 @@ public class FrmCadastroAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCadastrar;
+    private javax.swing.JButton BtnCancelar;
+    private javax.swing.JLabel LbCurso;
+    private javax.swing.JLabel LbFase;
+    private javax.swing.JLabel LbIdade;
+    private javax.swing.JLabel LbNome;
+    private javax.swing.JTextField TxtCurso;
+    private javax.swing.JTextField TxtFase;
+    private javax.swing.JTextField TxtIdade;
+    private javax.swing.JTextField TxtNome;
     // End of variables declaration//GEN-END:variables
 }
